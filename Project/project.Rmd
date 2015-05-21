@@ -73,3 +73,4 @@ We can observe in the appendix that the residuals are homoskedastic
    par(mfrow=c(2,2))
    plot(multiModel)
   ```
+The complete code for this project can be found here: (https://github.com/lorenazs/regressionmodels/blob/master/Project/project.Rmd) 
