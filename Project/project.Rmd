@@ -33,7 +33,7 @@ It is necessary to determine if the MPG mean difference is significant, then we 
 #### Regression Analysis
 At first we cant test a simple linear regression model using am as predictor and mpg as outcome
 
-```{r  Echo =FALSE, results='hide'}
+```{r  }
   summary (lm(mpg ~ am, data=mtcars))
 ```
 The coefficient and intercept shows that manual transmission cars have 7.24 MPG and automatic transmission cars have 17.24 MPG.
