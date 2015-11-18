@@ -1,7 +1,7 @@
 ---
 title: "Regression Models - Course Project"
 author: "Lorena Zuniga"
-output: pdf_document
+output: word_document
 fontsize: 9pt
 ---
 #### Executive Summary
@@ -33,8 +33,8 @@ It is necessary to determine if the MPG mean difference is significant, then we 
 #### Regression Analysis
 At first we cant test a simple linear regression model using am as predictor and mpg as outcome
 
-```{r  }
-  summary (lm(mpg ~ am, data=mtcars))
+```{r ECHO = TRUE}
+  summary(lm(mpg ~ am, data=mtcars))$coef
 ```
 The coefficient and intercept shows that manual transmission cars have 7.24 MPG and automatic transmission cars have 17.24 MPG.
 The R-squared = 0.338 , that shows the model only explains 33.8% of the variance.
@@ -56,7 +56,7 @@ Comparing both models with ANOVA:
 The p-value is 3.7e-09 and therefore the difference between both models is significant
 
 ```{r Echo =FALSE}
- summary(multiModel)  
+ summary(multiModel)$coef  
 ```
 Observing the coefficients, it is possible to say that, in average, cars with manual transmission have 2.083MPG more than cars with automatic transmission.
 For the multivariable model the R-squared = 0.84, it is possible to say that the multivariable model explain the  84% of the variance.
