@@ -17,8 +17,8 @@ data("mtcars")
 str(mtcars)
 ```
 In the am column: 0 is automatic transmission, 1 = manual transmission.
-We can observe that the MPG mean between each type of transmission is different:
-```{r}
+It is observed that the MPG mean between each type of transmission is different:
+```{r Echo = TRUE}
  autom<- mtcars[mtcars$am==0,]
  manual <-mtcars[mtcars$am==1,]
  c(mean(autom$mpg),mean(manual$mpg))
