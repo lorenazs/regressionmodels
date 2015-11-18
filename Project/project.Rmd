@@ -1,14 +1,14 @@
 ---
-title: "Regression Models - Project"  
-author: "Lorena Zuniga"  
-output: html_document
+title: "Regression Models - Course Project"
+author: "Lorena Zuniga"
+output: pdf_document
 fontsize: 9pt
 ---
 #### Executive Summary
-For this project, Motor Trend (a magazine about the automobile industry) is interested in exploring the relationship between a set of variables and miles per gallon (MPG). They are interested in the following questions:
+For this project, Motor Trend (a magazine about the automobile industry) is interested in exploring the relationship between a set of variables and miles per gallon (MPG). They need to answer the following questions:
 1- Is an automatic or manual transmission better for MPG ?
 2- Quantify the MPG difference between automatic and manual transmissions
-The project use the dataset mtcars
+This project use the mtcars dataset
 
 #### Exploratory Analysis
 Load the data:
@@ -31,7 +31,7 @@ It is necessary to determine if the MPG mean difference is significant, then we 
  The p-value is 0.001374, so in this case the difference between the MPG mean of the cars with manual transmission and the automatic cars is significant
 
 #### Regression Analysis
-We test a first simple linear regression model using am as predictor and mpg as outcome
+At first we cant test a simple linear regression model using am as predictor and mpg as outcome
 
 ```{r  Echo =FALSE, results='hide'}
   summary (lm(mpg ~ am, data=mtcars))
@@ -58,16 +58,25 @@ The p-value is 3.7e-09 and therefore the difference between both models is signi
 ```{r Echo =FALSE}
  summary(multiModel)  
 ```
-Observing the coefficients, it is possible to say that, in average, cars with manual transmission have 2.083MPG more than cars with 
-automatic transmission.
+Observing the coefficients, it is possible to say that, in average, cars with manual transmission have 2.083MPG more than cars with automatic transmission.
 For the multivariable model the R-squared = 0.84, it is possible to say that the multivariable model explain the  84% of the variance.
 
 #### Residuals
-We can observe in the appendix that the residuals are homoskedastic
-
+ It is verified that the mean of the residuals is near 0:
+````{r}
+  mean(multiModel$residuals)
+````
+ Also it is possible verify that each one of the MPG predictors (hp, wt and am) are uncorrelated with the residuals
+The residuals chart can be found in the Apendix
+```{r}
+  cov(multiModel$residuals,mtcars$hp)
+  cov(multiModel$residuals,mtcars$wt)
+  cov(multiModel$residuals,mtcars$am)
+````
 #### Apendix
 ```{r}
    par(mfrow=c(2,2))
+   par(mar=rep(2,4))
    plot(multiModel)
-  ```
+```
 The complete code for this project can be found here: (https://github.com/lorenazs/regressionmodels/blob/master/Project/project.Rmd) 
